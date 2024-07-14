@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>插值语法{{name}}</title>
+		<script src="myvue5_2.js"></script>
+	</head>
+	<body>
+	
+		<div id="app">
+			<p>{{name}}</p>
+			<p>{{age}}</p>
+		</div>
+	
+		<script>
+			var app=new QVue({
+				el: "#app",
+				data: {
+					name: "I am test",
+					age: 12,
+				}
+			})
+		</script>
+	</body>
+</html>

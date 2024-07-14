@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>测试  myvue1.js 页面</title>
+		<script src="myvue1.js"></script>
+	</head>
+
+	<body>
+			<!-- {{}}里面填js表达式或者js代码语句，如a,a+b其中这些都是var的变量，这些变量都有返回值。2，其次，Data.now()这种函数也能 -->
+			<!-- 3，if(){} 	for(){}这类语句也行 -->
+			<!-- {{xxx}}，可以读到data里面定义的所有xxx数据，这些数据能用一些方法修改后使用例如		xxx.toUpperCase() 这个也有返回值 -->
+		<div id="app">
+			<p>{{name}}</p>
+			<p q-text="name"></p>
+			<p>{{age}}</p>
+			<p>{{doubleAge}}</p>
+			<input type="text" q-model="name" />
+			<button @click="changeName">点击</button>
+			<div q-html="html"></div>
+		</div>
+
+		<script>
+			var app=new QVue({
+				el: "#app",
+				data: {
+					name: "I am test",
+					age: 12,
+					html: "<button>这是一个后插入的按钮</button>"
+				},
+				created() {
+					console.log("开始吧,QVue");
+					setTimeout(() => {
+						this.name = "测试数据，更改了么";
+					}, 2000)
+				},
+				methods: {
+					changeName() {
+						this.name = "点击啦，改变吧";
+						this.age = 1000000;
+					}
+				}
+			})
+		</script>
+
+	</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue指令解析</title>
+	</head>
+	<script src="myvue6.js"></script>
+	<body>
+		<div id="app">
+			<p q-text="age"></p>
+			<br>
+			<p q-html="name"></p>
+			
+			<p @click="show">点我</p>
+			
+			用户名：<input type="text" q-model="name"/><br />
+			年龄：<input type="text" q-model="age"/>
+		</div>
+	</body>
+	
+	<script>
+		var app = new QVue({
+			el:"#app",
+			data:{
+				name: "<b>111</b>",
+				age:12
+			},
+			methods:{
+				show(){
+					alert("12312");
+				}
+			}
+		})
+	</script>
+</html>

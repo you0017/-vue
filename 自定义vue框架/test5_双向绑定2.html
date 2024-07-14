@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<script src="vue.js"></script>
+	</head>
+
+	<body>
+
+		<div id="app">1
+			<p>{{name}}2<div>00</div></p>3
+			<p q-text="name">4<div>00</div></p>5
+			<p>{{age}}6</p>7
+			<p>{{doubleAge}}8</p>9
+			<input type="text" q-model="name" />
+			<button @click="changeName">点击</button>
+			<div q-html="html"></div>
+			{{arr}}
+		</div>
+		<!-- var a = document.getElementById('app');
+
+		var b = a.childNodes; -->
+		<script>
+			var app=new QVue({
+				el: "#app",
+				data: {
+					name: "I am test",
+					age: 12,
+					html: "<button>这是一个后插入的按钮</button>",
+					arr:[1,2,3,4]
+				},
+				created() {
+					console.log("开始吧,QVue");
+					setTimeout(() => {
+						this.name = "测试数据，更改了么";
+					}, 2000)
+				},
+				methods: {
+					changeName() {
+						this.name = "点击啦，改变吧";
+						this.age = 1000000;
+					}
+				}
+			})
+		</script>
+
+	</body>
+
+</html>
+<!-- 
+在 Vue 中，模型代表应用程序的数据和业务逻辑。
+模型通常是通过 Vue 实例的数据属性来表示，
+这些数据可以是从服务器获取的、用户输入的、或者其他来源的。
+Vue 中的模型是响应式的，这意味着当模型中的数据发生变化时，与之相关联的视图会自动更新。
+
+View（视图）：
+视图是用户界面的展示部分，通常是由 HTML 和 CSS 组成。在 Vue 中，
+视图是由 Vue 模板语法（Template Syntax）编写的，它允许开发者将数据绑定到 HTML 中，从而动态地渲染视图。
+视图中的数据绑定指令会将模型中的数据映射到视图上，当模型中的数据发生变化时，视图会自动更新以反映这些变化。
+
+ViewModel（视图模型）：
+视图模型是 Vue 实例的实例化对象，它是视图和模型之间的连接层。
+Vue 实例中的数据属性（data）、方法（methods）、计算属性（computed）和监听器（watchers）等都属于视图模型的一部分。
+视图模型负责处理视图和模型之间的数据交互和逻辑，它将模型中的数据转换为视图所需的格式，并且暴露一些方法和属性供视图绑定。
+视图模型还负责处理用户交互的逻辑，当视图发生变化时更新模型数据，当模型数据变化时更新视图。
+
+在 Vue 中，数据绑定是通过 Vue 实例的响应式系统来实现的，当模型中的数据发生变化时，Vue 会自动检测这些变化，
+并通知与之相关联的视图进行更新，这种数据绑定的实现方式使得开发者可以专注于业务逻辑的实现，而无需手动管理视图和模型之间的数据同步。 -->

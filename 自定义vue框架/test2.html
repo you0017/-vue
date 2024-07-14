@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		Vue实现的原理。
+		<ul>
+			<li> 需要数据监听器Observer，能够对数据对象的所有属性进行监听，如有变动可拿到最新值并通知订阅者。</li>
+			<li>需要指令解析器Compile，对每个元素节点的指令进行扫描和解析，根据指令模板替换数据，以及绑定相应的更新函数。</li>
+			<li>一个Watcher，作为连接Observer和Compile的桥梁，能够订阅并收到每个属性变动的通知，执行指令绑定的相应回调函数，从而更新视图。</li>
+			<li>MVVM入口函数，整合以上三者，实现数据响应。</li>
+		</ul>
+		<img src="data.png" width="800px"/>
+		
+
+	</body>
+	
+	<script>
+		//先理解监听器模式：
+		//定义被监听的主题Subject  构造函数
+		function Subject(){
+			this.watcher = [];//存储  观察者列表
+			this.a = 1;	//待观测的值，只要这个值一变化，就通知所有的观察者
+			//真正的vue中的Object.definePrOperty(obj,"name")
+		}
+		
+		//给坚挺的主题Subject对象添加的方法
+		Subject.prototype = {
+			//订阅方法：将观察者注册到 this.watchers集合
+			subscribe:function(watcher){
+				this.watcher.push(watcher);
+			},
+			//取消订阅方法：将观察者从this.watchers集合中删除
+			unsubscribe:function(watcher){
+				const index = this.watcher.indexOf(watcher);
+				if(index>-1){
+					//splice切片
+					this.watcher.splice(index,1);
+				}
+			},
+			//因为待观测的值this.a发生变化，所以通知(相当于图中的update)所有观察者方法
+			notyfi:function(){
+				this.a++;
+				this.watcher.forEach(watcher=>{
+					watcher.update(this.a);
+				});
+			}
+		};
+		//定义Watcher观察者
+		function Watcher(name){
+			this.name = name;
+		}
+		
+		//Observer的方法
+		Watcher.prototype = {
+			update:function(num){
+				console.log(`观察者:${this.name}被通知了，新值为:${num}`);
+				//真正的vue，完成更新界面的组件值
+			}
+		};
+		
+		//使用示例
+		const subject = new Subject(); //声明被观察的主题
+		
+		//观察者
+		const watcher1 = new Watcher('观察者1');
+		const watcher2 = new Watcher('观察者2');
+		//将观察者注册到主题列表中
+		subject.subscribe(watcher1);
+		subject.subscribe(watcher2);
+		
+		subject.notyfi();//主题发生变化
+	</script>
+
+</html>

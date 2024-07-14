@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>测试call,callee的用法</title>
+	</head>
+	<body>
+		
+		
+	</body>
+
+	<script>
+		//java中反射method.invoke(obj,实际参数)->person.show(xxx);
+		//一:call方法允许您调用一个对象方法，但是可以为其指定一个不同的this对象
+		//这意味着你可以借用一个对象的方法并将其应用于另一个对象，而无需在新对象中赋值该方法
+		function greet(){
+			return "Hello,"+this.name;
+		}
+		//定义两个js对象
+		var person1 = {
+			name:"John"
+		};
+		var person2 = {
+			name:"Jane"
+		};
+		//console.log(greet.call(person1));//输出Hello,John  person1.greet();
+		//console.log(greet.call(person2));//输出Hello,Jane  person2.greet();
+		//console.log(greet.apply(person2));//person1.greet();
+		//应用场景：
+		//已知函数(功能),但对象是动态生成，再将这个功能与这个对象动态绑定
+		
+		
+		//apply方法：   对于apply和call两者在作用上是相同的，但两者在参数上有区别的
+		//apply方法的第一个参数也是要传入给当前对象的对象，即函数内部的this，后面的参数都是传递给当前对象的参数
+		//如func.call(func1,var1,var2,var3)  对应的apply写法为：func.apply(func1,[var1,var2,var3])
+		//同时，使用apply的好处是可以直接将当前函数的arguments对象作为apply的第二个参数传入
+		var func = new function(){
+			this.a = "func";	//对象
+		}
+		
+		var myfunc = new function(){//函数
+			var a = "myfunc";
+			console.log(this.a);
+			console.log(x+y);
+		}
+		//以下代码相当于：对象名.函数名(参数);=>func.myfunc("var","fun")
+		//myfunc.call(func,"var","fun");//"func"  "varfun"
+		
+		//myfunc.apply(func,["var","fun"]);//"func"  "varfun"
+		
+		
+		
+		
+	</script>
+	
+</html>

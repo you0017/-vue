@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>defineProperty的作用</title>
+	</head>
+	<body>
+		
+		<div id="name"></div>
+		
+		<script>
+			//给这个obj对象添加一个属性，且让这个属性绑定一个监听，只要这个属性一变化，对应视图就会变化
+			var obj={};
+			//通过上面的代码使用Object.defineProperty对Obj对象中的name属性进行了挟持，
+			//一旦该属性发生了变化则会触发set函数执行，做出响应的操作,完成视图的与数据的双向绑定. 
+			
+			//Object.defineProperty是ES5中一个无法shim的特性，这也就是为什么Vue不支持 IE8 以及更低版本浏览器。
+			Object.defineProperty(obj,"name",{
+				get(){
+					//只要 obj.name方式取值，则由这段代码取出界面上<div id="name">xxx</div>值返回
+					return document.querySelector("#name").innerHTML;
+				},
+				set(val){
+					//只要你调用 obj.name="zy"  这种设置值得操作，则将这个值放到<div id="name">xxx</div>中去
+					document.querySelector("#name").innerHTML=val;
+				}
+			});
+			obj.name="hello11";
+		</script>
+		
+	</body>
+</html>

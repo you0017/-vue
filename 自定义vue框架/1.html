@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目导航</title>
+    <style>
+        body{font-family:Arial,sans-serif;margin:0;padding:0;background-color:#f4f4f4;color:#333}
+        header{background-color:#333;color:#fff;padding:20px;text-align:center}
+        h1{margin-bottom:20px}
+        nav{background-color:#fff;border:1px solid #ccc;border-radius:5px;padding:20px;margin:0 auto;max-width:1400px}
+        nav ul{list-style-type:none;padding:0;display:flex;flex-wrap:wrap;justify-content:space-between}
+        nav ul li{width:calc(46% - 10px);margin-bottom:20px;background-color:#fff;border:1px solid #ccc;border-radius:5px;padding:10px;display:inline-block;cursor:pointer}
+        nav ul li:hover{background-color:#f0f0f0}
+        nav ul li a{text-decoration:none;color:#333;font-weight:bold;display:inline-block;margin:10px 0}
+        nav ul li a:hover{color:red}
+        nav ul li p{margin:10px 0}
+        section{padding:20px;margin:20px auto;max-width:600px;background-color:#fff;border:1px solid #ccc;border-radius:5px}
+        .down-a{font-size:13px;color:#409EFF;}
+		.title-a{margin: 0 10px;font-size: 18px;}
+    </style>
+</head>
+<body>
+<div id="app">
+	<header>
+	    <h1>项目导航</h1>
+		<div style="width: 100%;padding-bottom: 25px;">
+			<div style="width: 48%;float: left;cursor: pointer;font-weight:bold;margin-right: 4%;
+			background-color: #909399;color: #EBEEF5;border-radius: 10px;padding: 8px 0;"
+			 onclick="handleClick()">项目</div>
+			<div style="width: 48%;float: left;cursor: pointer;font-weight:bold;
+			background-color: #909399;color: #EBEEF5;border-radius: 10px;padding: 8px 0;" 
+			onclick="handleClicks()">项目拓展技术点</div>
+		</div>
+	</header>
+	<div style="width: 100%;text-align: center;color: #909399;margin: 10px 0;">
+		温馨提示: 部分项目采用内网映射的方式, 可能会有加载过慢显示不全, 这是正常的哦。</div>
+	<nav>
+		<div id="project">
+			<ul >
+			    <li>
+			        <a href="http://47.121.143.109:8080/chat" class="title-a" target="_blank">简易聊天室</a>
+					<a class="down-a" href="http://47.106.66.89:7500/upload/db.sql" 
+					download="fresh.sql" target="downloadFile">下载数据库SQL1</a>
+					<a class="down-a" href="http://47.106.66.89:7500/upload/project.sql"
+					download="fresh.sql" target="downloadFile">下载数据库SQL2</a>
+			        <div style="padding-left: 20px;">
+			            <p>用户账号密码：a/a </p>
+						<p>项目架构: Tomcat + Servlet + Vue.js等前端UI框架  </p>
+			            主要功能包括(1.登录注册 2.聊天等)等
+			        </div>
+			    </li>
+				<li>
+				    <a href="http://47.121.143.109:8080/bookManage" class="title-a" target="_blank">简易图书系统</a>
+					<a class="down-a" href="http://47.106.66.89:7500/upload/数据库脚本.sql" 
+					download="fresh.sql" target="downloadFile">下载数据库SQL</a>
+				    <div style="padding-left: 20px;">
+				        <p>用户账号密码：a/a </p>
+						<p>项目架构: Tomcat + Servlet + Vue.js等前端UI框架  </p>
+				        主要功能包括(1.登录注册 2.图书增删改查)等
+				    </div>
+				</li>
+				
+			    
+			</ul>
+		</div>
+	    
+		
+		<div id="topicinfo">
+			<ul>
+				<li>
+					<h3>对象存储</h3>
+					<p>
+						<a href="https://help.aliyun.com/zh/oss/" class="title-a" 
+						style="font-size: 16px;font-weight: normal;" target="_blank">阿里云OSS官方文档</a>
+					</p>
+					<p>
+						<a href="https://blog.csdn.net/lsf15870973083/article/details/131873084" class="title-a" 
+						style="font-size: 16px;font-weight: normal;" target="_blank">阿里云OSS使用教程</a>
+					</p>
+					<p>
+						<a href="https://blog.csdn.net/AN_NI_112/article/details/132076550" class="title-a" 
+						style="font-size: 16px;font-weight: normal;" target="_blank">阿里云OSS的开通+配置及其使用</a>
+					</p>
+				</li>
+				
+				<li>
+					<h3>短信服务</h3>
+					<p>
+						<a href="https://help.aliyun.com/zh/sms/product-overview/product-introduction/" class="title-a" 
+						style="font-size: 16px;font-weight: normal;" target="_blank">阿里云短信服务官方文档</a>
+					</p>
+					<p>
+						<a href="https://zhuanlan.zhihu.com/p/634449088" class="title-a" 
+						style="font-size: 16px;font-weight: normal;" target="_blank">阿里云短信简介和接入流程</a>
+					</p>
+					<p>
+						<a href="https://blog.csdn.net/weixin_45377770/article/details/106235791" class="title-a" 
+						style="font-size: 16px;font-weight: normal;" target="_blank">如何发送手机短信验证码</a>
+					</p>
+				</li>
+				
+				<li>
+					<h3>语音识别</h3>
+					<p>
+						<a href="https://ai.baidu.com/ai-doc/SPEECH/Tl9mh38eu" class="title-a" 
+						style="font-size: 16px;font-weight: normal;" target="_blank">百度语音识别官方文档</a>
+					</p>
+					<p>
+						<a href="https://blog.csdn.net/heima005/article/details/127318483" class="title-a" 
+						style="font-size: 16px;font-weight: normal;" target="_blank">百度AI-语音识别&图片搜索(Java)</a>
+					</p>
+					<p>
+						<a href="https://blog.csdn.net/leavemyleave/article/details/134385584" class="title-a" 
+						style="font-size: 16px;font-weight: normal;" target="_blank">使用百度语音识别技术实现文字转语音的Java应用</a>
+					</p>
+				</li>
+				
+				<li>
+					<h3>人脸识别</h3>
+					<p>
+						<a href="https://cloud.baidu.com/doc/FACE/index.html" class="title-a" 
+						style="font-size: 16px;font-weight: normal;" target="_blank">百度人脸识别官方文档</a>
+					</p>
+					<p>
+						<a href="https://www.jb51.net/article/234133.htm" class="title-a" 
+						style="font-size: 16px;font-weight: normal;" target="_blank">JavaCV调用百度AI实现人脸检测方法详解</a>
+					</p>
+					<p>
+						<a href="https://www.cnblogs.com/runningA/p/12531974.html" class="title-a" 
+						style="font-size: 16px;font-weight: normal;" target="_blank">Java对接百度智能云人脸识别</a>
+					</p>
+				</li>
+				
+				<li>
+					<h3>高德地图</h3>
+					<p>
+						<a href="https://lbs.amap.com/api/webservice/create-project-and-key" class="title-a" 
+						style="font-size: 16px;font-weight: normal;" target="_blank">高德地图官方文档</a>
+					</p>
+					<p>
+						<a href="https://lbs.amap.com/demo/javascript-api-v2/example/calcutation/calculate-distance-between-two-markers" class="title-a" 
+						style="font-size: 16px;font-weight: normal;" target="_blank">两点间距离-距离/面积计算-示例</a>
+					</p>
+				</li>
+				
+				<li>
+					<h3>智能客服</h3>
+					<p>
+						<a href="https://cloud.baidu.com/doc/UNIT-LLM/s/tlrydwwi6" class="title-a" 
+						style="font-size: 16px;font-weight: normal;" target="_blank">百度智能客服官方文档</a>
+					</p>
+					<p>
+						<a href="https://www.jb51.net/program/312812qtr.htm" class="title-a" 
+						style="font-size: 16px;font-weight: normal;" target="_blank">Java使用百度AI接口实现智能机器人对话系统</a>
+					</p>
+				</li>
+				
+				
+				<li>
+					<h3>Gitee授权登录</h3>
+					<p>
+						<a href="https://blog.csdn.net/qq_41647780/article/details/119616662" class="title-a" 
+						style="font-size: 16px;font-weight: normal;" target="_blank">Java实现Gitee登录</a>
+					</p>
+					<p>
+						<a href="https://blog.51cto.com/u_16099247/9337766" class="title-a" 
+						style="font-size: 16px;font-weight: normal;" target="_blank">java实现gitee授权登录 git登录用户</a>
+					</p>
+				</li>
+				
+				<li>
+					<h3>邮件发送</h3>
+					<p>
+						<a href="https://blog.csdn.net/yhx101/article/details/133814513" class="title-a" 
+						style="font-size: 16px;font-weight: normal;" target="_blank">java 邮件发送的几种方式</a>
+					</p>
+					<p>
+						<a href="https://blog.csdn.net/q_qwp_p/article/details/131621962" class="title-a" 
+						style="font-size: 16px;font-weight: normal;" target="_blank">Java实现邮件的发送（E-mail）</a>
+					</p>
+					<p>
+						<a href="https://blog.csdn.net/weixin_72764731/article/details/131614442" class="title-a" 
+						style="font-size: 16px;font-weight: normal;" target="_blank">java实现发送邮件</a>
+					</p>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</div>
+<script type="text/javascript" src="js/watermark.js"></script>
+<script type="text/javascript">
+	
+	 // watermark.init({
+	 //            watermark_txt:"源辰信息",
+	 //            watermark_alpha:0.2,
+	 //            watermark_fontsize:"13px",
+	 //            watermark_width: 200
+	 //        });
+	
+    function handleClick(url){
+		window.open(url, '_blank');
+	}
+	function handleClick(){
+		document.getElementById("project").style.display = "block";
+		document.getElementById("topicinfo").style.display = "none";
+	}
+	function handleClicks(){
+		document.getElementById("topicinfo").style.display = "block";
+		document.getElementById("project").style.display = "none";
+	}
+</script>
+</body>
+</html>
